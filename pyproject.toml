@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "teapod"
 version = "0.1.0"
-description = "Litter."
+description = "Teapod."
 authors = ["Yevgnen Koh <wherejoystarts@gmail.com>"]
 
 [tool.poetry.dependencies]
