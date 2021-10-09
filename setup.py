@@ -30,7 +30,14 @@ setup(
     author_email="wherejoystarts@gmail.com",
     packages=find_packages(exclude=("tests", "tests.*")),
     include_package_data=True,
-    install_requires=[],
+    entry_points={
+        "console_scripts": [
+            "poetry-add-latest=teapod.scripts.poetry_add_latest:main",
+        ],
+    },
+    install_requires=[
+        "pytoml",
+    ],
     test_suite="tests",
     zip_safe=False,
 )
