@@ -23,6 +23,7 @@ class Command(object):
     def print_system_info(self):
         lines = [
             "# System",
+            f'- IP: {subprocess.run(["curl", "-s", "ip.gs"], text=True, stdout=subprocess.PIPE).stdout}',
             f"- Time: {datetime.datetime.now().isoformat()}",
         ]
 
