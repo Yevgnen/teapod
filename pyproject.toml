@@ -12,7 +12,6 @@ org-import = "teapod.scripts.org_import:main"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-pycarton = "*"
 pytoml = "*"
 resworb = "*"
 rich = "*"

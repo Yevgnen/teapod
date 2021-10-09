@@ -3,12 +3,19 @@
 
 import datetime
 import os
-import shutil
 import subprocess
 
-from carton.utils import git_version
 from rich.console import Console
 from rich.markdown import Markdown
+
+
+def parse_stdout(commands, failed_message="NOT AVAILABLE"):
+    try:
+        text = subprocess.run(commands, text=True, stdout=subprocess.PIPE).stdout
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        text = failed_message
+
+    return text
 
 
 class Command(object):
@@ -23,7 +30,7 @@ class Command(object):
     def print_system_info(self):
         lines = [
             "# System",
-            f'- IP: {subprocess.run(["curl", "-s", "ip.gs"], text=True, stdout=subprocess.PIPE).stdout}',
+            f'- IP: {parse_stdout(["curl", "-s", "ip.gs"])}',
             f"- Time: {datetime.datetime.now().isoformat()}",
         ]
 
@@ -54,30 +61,17 @@ class Command(object):
         pairs = ((key, os.getenv(key, "")) for key in keys)
 
         lines = ["# Python"] + [f"- {key}: {value}" for key, value in pairs]
-
-        if shutil.which("asdf"):
-            lines += [
-                "- asdf[Python]: "
-                + subprocess.run(
-                    ["asdf", "current", "python"],
-                    check=True,
-                    text=True,
-                    stdout=subprocess.PIPE,
-                ).stdout
-            ]
-        else:
-            lines += ["- asdf[Python]: NOT AVAILABLE"]
+        lines += [f'- asdf[Python]: {parse_stdout(["asdf", "current", "python"])}']
 
         return self._add_section(lines)
 
     def print_git(self):
-        if shutil.which("git"):
-            lines = [
-                "# Git",
-                f'- Log: {git_version(".")}',
-            ]
+        lines = [
+            "# Git",
+            f'- Log: {parse_stdout(["git", "--no-pager", "log", "--pretty=oneline", "--abbrev-commit", "-1"])}',
+        ]
 
-            return self._add_section(lines)
+        return self._add_section(lines)
 
     def run(self):
         console = Console()

@@ -39,7 +39,6 @@ setup(
         ],
     },
     install_requires=[
-        "pycarton",
         "pytoml",
         "resworb",
         "rich",
