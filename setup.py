@@ -34,10 +34,12 @@ setup(
         "console_scripts": [
             "poetry-add-latest=teapod.scripts.poetry_add_latest:main",
             "pip-update-all=teapod.scripts.pip_update_all:main",
+            "org-import=teapod.scripts.org_import:main",
         ],
     },
     install_requires=[
         "pytoml",
+        "resworb",
     ],
     test_suite="tests",
     zip_safe=False,
