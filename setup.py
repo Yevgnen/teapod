@@ -33,6 +33,7 @@ setup(
     entry_points={
         "console_scripts": [
             "poetry-add-latest=teapod.scripts.poetry_add_latest:main",
+            "pip-update-all=teapod.scripts.pip_update_all:main",
         ],
     },
     install_requires=[
