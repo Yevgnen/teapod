@@ -32,14 +32,17 @@ setup(
     include_package_data=True,
     entry_points={
         "console_scripts": [
+            "information=teapod.scripts.information:main",
             "poetry-add-latest=teapod.scripts.poetry_add_latest:main",
             "pip-update-all=teapod.scripts.pip_update_all:main",
             "org-import=teapod.scripts.org_import:main",
         ],
     },
     install_requires=[
+        "pycarton",
         "pytoml",
         "resworb",
+        "rich",
     ],
     test_suite="tests",
     zip_safe=False,
