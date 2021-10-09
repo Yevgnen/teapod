@@ -74,6 +74,7 @@ class Command(object):
     def print_git(self):
         lines = [
             "# Git",
+            f'- Branch: {parse_stdout(["git", "branch", "--show-current"])}',
             f'- Log: {parse_stdout(["git", "--no-pager", "log", "--pretty=oneline", "--abbrev-commit", "-1"])}',
         ]
 
