@@ -11,7 +11,13 @@ from rich.markdown import Markdown
 
 def parse_stdout(commands, failed_message="NOT AVAILABLE"):
     try:
-        text = subprocess.run(commands, text=True, stdout=subprocess.PIPE).stdout
+        text = subprocess.run(
+            commands,
+            text=True,
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+        ).stdout
     except (subprocess.CalledProcessError, FileNotFoundError):
         text = failed_message
 
