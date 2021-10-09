@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "teapod"
-version = "0.3.1"
+version = "0.3.2"
 description = "Teapod."
 authors = ["Yevgnen Koh <wherejoystarts@gmail.com>"]
 
