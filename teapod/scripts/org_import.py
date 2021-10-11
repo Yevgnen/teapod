@@ -21,6 +21,7 @@ def parse_args():
     parser.add_argument(
         "--source",
         type=str,
+        nargs="+",
         choices=["cloud_tabs", "opened_tabs", "histories", "bookmarks", "readings"],
         default=["cloud_tabs", "readings"],
     )
