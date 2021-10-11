@@ -86,6 +86,9 @@ def main():
         else:
             logger.info("%s\t%d", source, len(source_data))
 
+    if {"cloud_tabs", "opened_tabs", "readings"} & set(args.source):
+        logger.info("Be sure to close exported tabs to avoid duplicates next time!")
+
 
 if __name__ == "__main__":
     main()
