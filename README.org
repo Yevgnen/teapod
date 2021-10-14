@@ -1,0 +1,46 @@
+#+title: Teapod
+#+options: ^:nil
+
+* Table of Contents :TOC:
+- [[#introduction][Introduction]]
+  - [[#scripts][Scripts]]
+- [[#installation][Installation]]
+  - [[#from-pip][From pip]]
+  - [[#from-source][From source]]
+- [[#contribution][Contribution]]
+  - [[#formatting-code][Formatting Code]]
+
+* Introduction
+
+** Scripts
+
+The ~scripts~ provides convenient Python scripts for daily use. The installation will create executables automatically.
+
+- ~information~ :: Print environment information in current folder.
+- ~org-import~ :: Import cloud tabs from Safari to ~Org~ agenda file using [[https://github.com/Yevgnen/resworb/][Resworb]].
+- ~pip-update-all~ :: Update all Python packages using ~pip~.
+- ~poetry-add-latest~ :: Update all Poetry dependencies to latest version.
+
+* Installation
+
+** From pip
+
+#+begin_src sh
+pip install teapod
+#+end_src
+
+** From source
+
+#+begin_src sh
+pip install git+https://github.com/Yevgnen/teapod.git
+#+end_src
+
+* Contribution
+
+** Formatting Code
+
+To ensure the codebase complies with a style guide, please use [[https://github.com/PyCQA/flake8][flake8]], [[https://github.com/psf/black][black]] and [[https://github.com/PyCQA/isort][isort]] tools to format and check codebase for compliance with PEP8.
+
+# Local Variables:
+# eval: (add-hook 'before-save-hook (lambda nil (org-pandoc-export-to-gfm)) nil t)
+# End:
