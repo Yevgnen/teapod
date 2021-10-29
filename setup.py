@@ -36,6 +36,7 @@ setup(
             "poetry-add-latest=teapod.scripts.poetry_add_latest:main",
             "pip-update-all=teapod.scripts.pip_update_all:main",
             "org-import=teapod.scripts.org_import:main",
+            "surge-to-ss=teapod.scripts.surge_to_ss:main",
         ],
     },
     install_requires=[

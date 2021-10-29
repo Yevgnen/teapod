@@ -17,9 +17,14 @@
 The ~scripts~ provides convenient Python scripts for daily use. The installation will create executables automatically.
 
 - ~information~ :: Print environment information in current folder.
+
 - ~org-import~ :: Import cloud tabs from Safari to ~Org~ agenda file using [[https://github.com/Yevgnen/resworb/][Resworb]].
+
 - ~pip-update-all~ :: Update all Python packages using ~pip~.
+
 - ~poetry-add-latest~ :: Update all Poetry dependencies to latest version.
+
+- ~surge-to-ss~ :: Convert Surge config to shadowsocks-rust config.
 
 * Installation
 
