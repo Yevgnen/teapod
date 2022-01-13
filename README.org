@@ -22,9 +22,11 @@ The ~scripts~ provides convenient Python scripts for daily use. The installation
 
 - ~pip-update-all~ :: Update all Python packages using ~pip~.
 
+- ~surge-to-ss~ :: Convert Surge config to shadowsocks-rust config.
+
 - ~poetry-add-latest~ :: Update all Poetry dependencies to latest version.
 
-- ~surge-to-ss~ :: Convert Surge config to shadowsocks-rust config.
+- ~poetry-export-requirements~ :: Export all Poetry dependencies while fixing version issue of ~torch~ and ~torchvision~.
 
 * Installation
 
