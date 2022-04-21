@@ -55,8 +55,7 @@ def fix_torch_cuda(requirements_file, package, cuda):
             comps[0] = comps[0].rstrip()
 
         comps[0] = (
-            comps[0]
-            + f"+{cuda} -f https://download.pytorch.org/whl/{cuda}/torch_stable.html"
+            comps[0] + f" --extra-index-url https://download.pytorch.org/whl/{cuda}"
         )
 
         if len(comps) == 1:
