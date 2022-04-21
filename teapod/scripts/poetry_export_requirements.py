@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import argparse
+import logging
 import os
 import re
 import subprocess
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -35,8 +35,8 @@ def poetry_export(project_root, requirements_file=None):
         "requirements.txt",
         "--without-hashes",
     ]
-    with open(requirements_file, mode="w") as f:
-        subprocess.run(commands, cwd=project_root, stdout=f)
+    with open(requirements_file, mode="w", encoding="utf8") as f:
+        subprocess.run(commands, cwd=project_root, stdout=f, check=True)
 
     return requirements_file
 
@@ -65,12 +65,12 @@ def fix_torch_cuda(requirements_file, package, cuda):
 
         return requirements
 
-    with open(requirements_file) as f:
+    with open(requirements_file, encoding="utf8") as f:
         requirements = list(f)
 
     requirements = _fix(package, requirements)
 
-    with open(requirements_file, mode="w") as f:
+    with open(requirements_file, mode="w", encoding="utf8") as f:
         f.writelines(requirements)
 
 
